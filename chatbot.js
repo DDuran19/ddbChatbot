@@ -1,13 +1,15 @@
 const { MessengerClient, MessengerBot } = require('messaging-api-messenger');
 const fs = require('fs');
+require('dotenv').config();
+const accessToken = process.env.ACCESS_TOKEN;
+const appId = process.env.APP_ID;
 
 // Load data from the JSON file
-const data = JSON.parse(fs.readFileSync('your_data.json'));
+const data = JSON.parse(fs.readFileSync('data.json'));
 
 const client = MessengerClient.connect({
-  accessToken: 'EAAOAVZCzYjDgBAHpdrckmfSHkY2EoDZCp3ammUQpnWZBL9s3GbunvfZBhaUGR37dAu8itHtGmeJXRmqRlUJZBe9eXU7YmkR4fNwXZBnxiiuZAl8WzP65plBzqAwpwipgfjOdJsaD0XYZBKc82AGd5xifR8KW9SwFS1jawbKOP7GfPlS4K41WOrXD1lkPSkLhC8z1dJAFOotqegZDZD',
-  appId: '985540322692152',
-  appSecret: 'YOUR_APP_SECRET',
+    accessToken,
+    appId
 });
 
 const bot = new MessengerBot({
